@@ -21,14 +21,15 @@ router.get('/:recipeId', async (req, res) => {
 
 router.post('/', auth, async (req, res) => {
    
-    let recipe = await recipesService.create({...req.body, _ownerId: req.user._id});
+    let recipe = await recipesService.create({...req.body, likes: [], _ownerId: req.user._id});
 
     res.json(recipe);
 });
 
-router.put('/:recipeId', async (req, res) => {
-     await recipesService.update(req.params.recipeId, req.body);
+router.put('/:recipeId', auth, async (req, res) => {
 
+    let recipe = await recipesService.update(req.params.recipeId, req.body);
+    //console.log(recipe)
      res.json(recipe);
 });
 

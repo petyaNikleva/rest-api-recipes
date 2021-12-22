@@ -7,7 +7,8 @@ const recipeSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        requered: true
+        requered: true,
+        enum: ['Супи', 'Аламинути', 'Основни', 'Десерти'],
     },
     img: {
         type: String,
@@ -15,7 +16,8 @@ const recipeSchema = new mongoose.Schema({
     },
     difficulty: {
         type: String,
-        requered: true
+        requered: true,
+        enum: ['Трудно', 'Лесно']
     },
     description: {
         type: String,
