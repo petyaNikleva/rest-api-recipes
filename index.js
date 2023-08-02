@@ -1,11 +1,11 @@
 const express = require('express');
-const { PORT } = require('./constants.js')
-const { initDatbase } = require('./config/databaseConfig');
-const routes = require('./routes');
+const { PORT } = require('./src/constants.js')
+const { initDatbase } = require('./src/config/databaseConfig.js');
+const routes = require('./src/routes.js');
 
 const app = express();
 
-require('./config/expressConfig')(app);
+require('./src/config/expressConfig.js')(app);
 
 app.use(routes);
 
